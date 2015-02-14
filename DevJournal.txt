@@ -7,4 +7,9 @@ edit mode to directly manipulate vertices, edges, and faces as well as the exten
 of unity, but I did gain an understanding of the UI.  I saw the coding necessary for moving on bject with vector values.  
 
 2-13-2015
-	This weak I made a basic Unity project for the purpose of testing code involving movement.  In 
+	This weak I made a basic Unity project for the purpose of testing code involving movement.  In here I utilized the Input.GetKey to detect
+user input first.  Then by using the translate method, specific to Unity for moving objects, changes object position with account to direction, 
+speed, and time.  To use translate syntax properly: transform.Translate(Vector3./*direction goes here*/ * moveSpeed * Time.deltaTime);  The deltaTime
+function is used specifically to maintain a constant rate, as the update function is based upon frames. Then the LookAt method is implemented to gear
+the camera to constantly focus upon the object controled by the player.  LookAt was a little more simple as all that was needed was: 
+transform.LookAt(/*target object*/);
