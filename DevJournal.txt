@@ -1,3 +1,10 @@
 2-6-2015
-	
-	
+	This week I tried learning the programs Blender, and unity.  I was unable to really get far in either as time was very short.  In blender,
+I learned about the user interface and controls as well as adding objects.  Then I learned about the tools for manipulating onjects, such as scale,
+translate, rotate, and mirror.  I could scale in a specific dimension by pressing "s" with "x", "y", or "z" and could apply a mirror for assisting 
+symetrical designsI did make a few basic models and then learn to save the file as an image.  The most recent thing I learned for blender was the 
+edit mode to directly manipulate vertices, edges, and faces as well as the extendfunction to protrude from a face.  I didn't get much in the ways 
+of unity, but I did gain an understanding of the UI.  I saw the coding necessary for moving on bject with vector values.  
+
+2-13-2015
+	This weak I made a basic Unity project for the purpose of testing code involving movement.  In 
