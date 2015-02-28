@@ -13,3 +13,24 @@ speed, and time.  To use translate syntax properly: transform.Translate(Vector3.
 function is used specifically to maintain a constant rate, as the update function is based upon frames. Then the LookAt method is implemented to gear
 the camera to constantly focus upon the object controled by the player.  LookAt was a little more simple as all that was needed was: 
 transform.LookAt(/*target object*/);
+
+2-20-2015
+	On this weak I worked on contructing a basic AI to simply follow thw player.  A major part of the coding was the Quaternian value type.
+Quaternian is specific to Unity and is utilized for manipulating direction/rotation.  Quaternian functions to take the input as follows:
+Quaternain.slerp (/*original rotation*/, /*target rotation*/, Time.deltaTime * /*rotation speed*/);  
+The code displayed would interpret the current 
+direction(rotation) and look for what the new direction will be, which in this case is the player.  Then the code accounts for rotation per time.  
+The next step was to move the AI controlled in the direction of the player.  To do so translate is called as: 
+transform.Translate (Vector3.forward * Time.deltaTime);
+The formerly expressed code was put into two methods: chase(), and lookAtPlayer().  For the code to be opperated, if statements are inserted into 
+the update function, based upon player distance.  If the player is at X distance: look at, at N distance: chase.  
+
+2-27-2015
+	I worked upon creating a means of attacking an enemy character this week.  To do so I first added a couple of new things in the, already 
+established, enemyAI script.  I made two methods, titled getHit and modHealth.  modHealth would take in a variable that would be added to the health 
+and remain between 0 and the maximum health.  getHit was a little more specific, as it took in a possitive varrible to which it pushed to modHealth 
+as a negative.  modHealth existed generally so that I may make alteration for testing purposes.  With attack, the main utility used was OverlapSphere.
+What that did was make a non-physical sphere with a set radius and distance from object source, and it would return an array filled with colliders.  The
+colliders are then processed through a loop that would get the attached rigid body object and test to see if it had the tag "enemy".  If it did it would 
+send out a message with a string, a float, and a function for the message to not be viewed by the player.  The string was "getHit" as to initiate the 
+method on the enemy character with the damage value.
