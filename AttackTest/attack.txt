@@ -1,0 +1,30 @@
+using UnityEngine;
+using System.Collections;
+
+public class attack : MonoBehaviour {
+
+	public Transform player;
+	public float damage = 15f;
+	
+	// Update is called once per frame
+	void Update () {
+	
+		if (Input.GetMouseButtonDown(0) {
+
+			Collider[] hitColliders = Physics.OverlapSphere(Vector3(0, 0, 2f), 2f);
+
+			int i = 0;
+			while (i < hitColliders.Length) {
+
+				 if (hitColliders[i].gameObject.FindWithTag("enemy")) {
+					SendMessage("getHit", damage, SendMessageOptions.DontRequireReceiver);
+					Debug.Log("Successful hit");
+				}
+
+				i++;
+			}
+
+		}
+
+	}
+}

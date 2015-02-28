@@ -1,0 +1,68 @@
+using UnityEngine;
+using System.Collections;
+
+public class enemyAI : MonoBehaviour {
+
+	public Transform player;
+	public float playerDistance;
+	public float rotationDamping;
+	public float moveSpeed;
+	public float health;
+	public float healthMax = 100;
+	public bool live = true; 
+
+	// Use this for initialization
+	void Start () {
+	
+
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+		if (health == 0) live = false;
+	
+		playerDistance = Vector3.Distance (player.position, transform.position);
+
+		if (live == true) {
+
+			if (playerDistance < 15f) {
+				lookAtPlayer();
+			}
+
+			if (playerDistance < 12f && playerDistance > 2f) {
+				chase ();
+			}
+
+		}
+
+	}
+
+	void lookAtPlayer() {
+
+		Quaternion rotation = Quaternion.LookRotation (player.position - transform.position);
+		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationDamping);
+
+	}
+
+	void chase() {
+
+		transform.Translate (Vector3.forward * Time.deltaTime);
+
+	}
+
+	public void modHealth(float change) {
+
+		health += change;
+
+		if (health + change > healthMax) health = healthMax;
+		else if (health + change < 0f) health = 0f;
+
+	}
+
+	void getHit(float damage) {
+		modHealth (-damage);
+	}
+
+}
