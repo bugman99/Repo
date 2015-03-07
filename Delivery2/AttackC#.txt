@@ -1,0 +1,33 @@
+using UnityEngine;
+using System.Collections;
+
+public class attack : MonoBehaviour {
+
+	public Transform player;
+	public float damage = 15;
+	public Vector3 center = new Vector3 (0f, 0f, 2f);
+
+	void Update () {
+	
+		if (Input.GetMouseButtonDown(0)) {
+
+			Debug.Log("left clicked");
+
+			Collider[] hitColliders = Physics.OverlapSphere(center, 2f);
+
+			int i = 0;
+			while (i < hitColliders.Length) {
+
+				if (hitColliders[i].gameObject.tag.Equals("enemy")) {
+					SendMessage("getHit", damage);
+					Debug.Log("Successful hit");
+				}
+
+			i++;
+
+			}
+
+		}
+
+	}
+}

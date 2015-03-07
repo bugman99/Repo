@@ -1,0 +1,25 @@
+using UnityEngine;
+using System.Collections;
+
+public class MoveTo : MonoBehaviour {
+
+	public Transform target;
+	Vector3 destination;
+	NavMeshAgent agent;
+	
+	void Start () {
+
+		agent = GetComponent<NavMeshAgent>();
+		destination = agent.destination;
+	}
+	
+	void Update () {
+
+		//if (EnemyAI.getLive()){
+				if (Vector3.Distance (destination, target.position) > 2f) {
+						destination = target.position;
+						agent.destination = destination;
+				}
+		//}
+	}
+}

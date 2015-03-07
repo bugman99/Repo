@@ -34,3 +34,13 @@ What that did was make a non-physical sphere with a set radius and distance from
 colliders are then processed through a loop that would get the attached rigid body object and test to see if it had the tag "enemy".  If it did it would 
 send out a message with a string, a float, and a function for the message to not be viewed by the player.  The string was "getHit" as to initiate the 
 method on the enemy character with the damage value.
+
+3-6-2015
+	The main focus has been constructing pathing and fix up issues with attack, and some of the EnemyAI.  To do the pathing their is a tool available 
+in unity that makes for a easier pathing system than to work it all out by myself.  It's called NavMesh and basically works by applying a layer on top of
+the selected objects for which are solid ground.  It may take in certain parameters such as how far away from edges the AI will move and upon what slop 
+will it move.  Then the object that will have the AI implemented upon will be identified as the NavAgent, and takes in parameters as to walk speed, turn 
+speed, acceleration, and others.  More would be needed for the system to actually function.  This would need some scripting beside the physical 
+application in the engine, but it's very simple as a matter of fact.  So I successfully made a functional AI but I have been experiencing issues with 
+Attack.  I think something is wrong with the input because in the if statement I inserted a line that would return something in the debugger but it didn't.
+I may look into this online.  Then the issues with EnemyAI is with interpreting distance but that will be solved very soon.

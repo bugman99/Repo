@@ -1,0 +1,40 @@
+using UnityEngine;
+using System.Collections;
+
+public class EnemyAI : MonoBehaviour {
+
+	public Transform player;
+	//public float distance = Vector3.Distance(player.position, GetComponent<Transform>().position);
+	
+	public float health;
+	public float healthMax = 100;
+	public bool live = true; 
+	
+	void Update () {
+
+		if (health == 0) live = false;
+	
+
+
+
+	}
+
+	public bool getLive() {
+		return live;
+	}
+
+	public void getHit(float damage) {
+
+		/*if (distance < 2f) {
+			health -= damage;
+		}*/
+
+		if (health < 0) {
+			health = 0;
+		}
+		else if (health > healthMax) {
+			health = healthMax;
+		}
+
+	}
+}
